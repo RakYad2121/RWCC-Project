@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        {% if user.is_authenticated %}
+            {% if user.id == post.author.id %}
+                        <h1>Delete a blog..</h1>
+
+                    <h3>Delete: {{post.title}}</h3>
+                </head>
+                <body>
+                    <form method="POST">
+                      {% csrf_token %}
+                      <button>Delete Blog</button>
+                    </form>
+                {% else %}
+                    <h1>You are not logged in!</h1>
+                    <a href="{% url 'login' %}">Login</a> or <a href="{% url 'login' %}">Register</a>
+            {% endif %}
+        {% endif %}
+</body>
+</html>
